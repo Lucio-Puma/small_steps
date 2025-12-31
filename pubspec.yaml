@@ -23,7 +23,7 @@ dependencies:
   # Data Persistence
   shared_preferences: ^2.2.0 # For saving progress locally (stars)
   flutter_tts: ^4.2.3
-  flutter_local_notifications: ^19.5.0
+  flutter_local_notifications: ^17.0.0
   timezone: ^0.10.1
 
 dev_dependencies:
