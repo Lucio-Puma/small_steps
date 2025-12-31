@@ -1,0 +1,35 @@
+name: small_steps
+description: A Christian-themed educational app for children aged 3-5.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Core Logic
+  cupertino_icons: ^1.0.2
+  
+  # Pedagogy & Interaction
+  audioplayers: ^6.0.0 # For animal sounds and narrations
+  sensors_plus: ^6.0.0 # For "Giants Fall" game (accelerometer)
+  
+  # UI/UX
+  flutter_svg: ^2.0.7 # For scalable illustrations
+  
+  # Data Persistence
+  shared_preferences: ^2.2.0 # For saving progress locally (stars)
+  flutter_tts: ^4.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  
+
