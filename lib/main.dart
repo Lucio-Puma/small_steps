@@ -9,9 +9,13 @@ import 'package:small_steps/features/games/jonah_game.dart';
 import 'package:small_steps/features/garden/garden_screen.dart';
 import 'package:small_steps/services/tts_service.dart';
 import 'package:small_steps/utils/parental_gate.dart';
+import 'package:small_steps/services/notification_service.dart';
 import 'dart:math';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService().init();
+  await NotificationService().requestPermissions();
   runApp(const SmallStepsApp());
 }
 
@@ -160,9 +164,10 @@ class _StepsViewState extends State<StepsView> {
   @override
   void initState() {
     super.initState();
-    super.initState();
     // Inicializar el servicio TTS (asegurando configuración)
     TtsService();
+    // Pedir permisos de notificación
+    NotificationService().requestPermissions();
     _loadData();
   }
 
@@ -342,6 +347,7 @@ class _StepsViewState extends State<StepsView> {
               }
               _recalculateProgress();
             });
+
             _saveData();
           },
           onTaskDeleted: () {
@@ -751,6 +757,13 @@ class _AddTaskModalState extends State<AddTaskModal> {
       date: taskTime,
       iconCodePoint: _selectedIcon.codePoint,
       isCompleted: widget.existingItem?.isCompleted ?? false,
+    );
+
+    // Programar Notificación
+    NotificationService().scheduleDailyNotification(
+      newItem.title.hashCode,
+      newItem.title,
+      _selectedTime,
     );
 
     widget.onTaskSaved(newItem);

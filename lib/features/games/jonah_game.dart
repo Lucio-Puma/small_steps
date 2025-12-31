@@ -19,7 +19,7 @@ class _JonahGameState extends State<JonahGame> {
   // Configuración
   final double _jonahSize = 40.0;
   final double _stepSize = 10.0; // Velocidad teclado
-  final double _sensorSensitivity = 2.0;
+  final double _sensorSensitivity = 10.0; // Aumentado para mayor velocidad
 
   // Estado del juego
   bool _gameWon = false;
@@ -43,6 +43,9 @@ class _JonahGameState extends State<JonahGame> {
     _streamSubscription =
         userAccelerometerEvents.listen((UserAccelerometerEvent event) {
       if (_gameWon || !_isInitialized) return;
+
+      // Zona muerta para evitar temblores
+      if (event.x.abs() < 0.5 && event.y.abs() < 0.5) return;
 
       // Accelerometer logic:
       // X: -tiltLeft ... +tiltRight
