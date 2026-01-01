@@ -12,19 +12,19 @@ dependencies:
   
   # Core Logic
   cupertino_icons: ^1.0.2
+  timezone: ^0.9.2
   
   # Pedagogy & Interaction
-  audioplayers: ^6.0.0 # For animal sounds and narrations
-  sensors_plus: ^6.0.0 # For "Giants Fall" game (accelerometer)
+  audioplayers: ^6.0.0
+  sensors_plus: ^5.0.0 # user requested ^5.0.0
   
   # UI/UX
-  flutter_svg: ^2.0.7 # For scalable illustrations
+  flutter_svg: ^2.0.7
   
   # Data Persistence
-  shared_preferences: ^2.2.0 # For saving progress locally (stars)
-  flutter_tts: ^4.2.3
-  flutter_local_notifications: ^17.0.0
-  timezone: 0.9.2
+  shared_preferences: ^2.2.0
+  flutter_tts: ^3.8.0 # user requested ^3.8.0
+  flutter_local_notifications: ^16.0.0 # user requested ^16.0.0
 
 dev_dependencies:
   flutter_test:
