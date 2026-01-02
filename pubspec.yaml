@@ -24,7 +24,7 @@ dependencies:
   # Data Persistence
   shared_preferences: ^2.2.0
   flutter_tts: ^3.8.0 # user requested ^3.8.0
-  flutter_local_notifications: ^16.0.0 # user requested ^16.0.0
+  flutter_local_notifications: ^17.0.0 # Upgraded to fix 'ambiguous bigLargeIcon' error on SDK 34+
 
 dev_dependencies:
   flutter_test:
